@@ -1,135 +1,150 @@
 /* window count */
+#modules-center {
+}
 
 #windowcount {
-	margin-right: 12px;
+  margin-right: 12px;
 }
+
 #windowcount label {
-	color: @text;
+  color: @text;
 }
 
 /* temperature */
 
 #custom-left_div.2 {
-	color: @temperature;
+  color: @temperature;
 }
+
 #temperature {
-	background-color: @modules-background;
+  background-color: @modules-background;
 }
 
 /* memory */
 
 #custom-left_div.3 {
-	background-color: @modules-background;
-	color: @memory;
+  background-color: @modules-background;
+  color: @memory;
 }
+
 #memory {
-	background-color: @modules-background;
+  background-color: @modules-background;
 }
 
 /* cpu */
 
 #custom-left_div.4 {
-	background-color: @modules-background;
+  background-color: @modules-background;
 }
+
 #cpu {
-	background-color: @modules-background;
+  background-color: @modules-background;
 }
+
 #cpu:hover {
   color: @hover-popup;
-	background-color: @transparent;
+  background-color: @transparent;
 }
+
 #custom-left_inv.1 {
-	color: @cpu;
+  color: @cpu;
 }
 
 /* distro icon */
 
 #custom-left_div.5,
 #custom-right_div.2 {
-	color: @text;
+  color: @text;
 }
+
 #custom-distro {
-	padding: 0 10px 0 5px;
-	font-size: 22px;
-	background-color: @modules-background;
-	color: @main-bg;
+  padding: 0 5px 0 5px;
+  font-size: 22px;
+  background-color: @modules-background;
+  color: @main-bg;
 }
 
 /* idle inhibitor & time */
-#idle_inhibitor:hover
-{
+
+#idle_inhibitor {
+  padding: 0 0px 0 0px;
+  background-color: @modules-background;
+}
+
+#idle_inhibitor:hover {
   color: @hover-button;
   background-color: @transparent;
 }
 
 #custom-right_inv.1 {
-	color: @time;
+  color: @time;
 }
-#idle_inhibitor {
-	background-color: @modules-background;
-}
+
+
 #clock.time {
-	padding-right: 6px;
-	background-color: @modules-background;
+  padding:0 4px 0 12px;
+  background-color: @modules-background;
 }
-#clock.time:hover{
+
+#clock.time:hover {
   color: @hover-popup;
   background-color: @transparent;
 }
+
 #custom-right_div.3 {
-	background-color: @modules-background;
-	color: @time;
+  background-color: @modules-background;
+  color: @time;
 }
 
 /* date */
 
 #clock.date {
-	padding-left: 6px;
-	background-color: @modules-background;
+  padding-left: 0px;
+  background-color: @modules-background;
 }
-#clock.date:hover
-{
+
+#clock.date:hover {
   color: @text;
   background-color: @hover-button;
 }
+
 #custom-right_div.4 {
-	background-color: @modules-background;
-	color: @date;
+  background-color: @modules-background;
+  color: @date;
 }
 
 /* quick settings */
 
 #network {
-	background-color: @modules-background;
-	padding: 0 6px 0 4px;
+  background-color: @modules-background;
+  padding: 0 6px 0 4px;
 }
-#network:hover
-{
+
+#network:hover {
   color: @text;
   background-color: @hover-button;
 }
 
 #bluetooth {
-	background-color: @modules-background;
-	padding: 0 5px;
+  background-color: @modules-background;
+  padding: 0 5px;
 }
-#bluetooth:hover
-{
+
+#bluetooth:hover {
   color: @text;
   background-color: @hover-button;
 }
 
 #custom-system_update {
-	background-color: @modules-background;
-	padding: 0 8px 0 2px;
+  background-color: @modules-background;
+  padding: 0 50px 0 2px;
 }
-#custom-system_update:hover
-{
-  color: @text;
-  background-color: @hover-button;
+
+#custom-system_update:hover {
+  color: @hover-popup;
+  background-color: @transparent;
 }
 
 #custom-right_div.5 {
-	color: @modules-background;
+  color: @modules-background;
 }
-

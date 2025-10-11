@@ -26,16 +26,38 @@ window#waybar>box {
 
 .deactivated,
 .paused,
-#pulseaudio.output.muted,
 #pulseaudio:hover {
-  color: @text;
-  background-color: @hover-button;
+  color: @hover-popup;
+  background-color: @transparent;
 }
 
-#pulseaudio.input.source-muted,
+#pulseaudio.output.muted,
+#pulseaudio.input.source-muted {
+  background-image: -gtk-gradient(radial,
+      center center, 0,
+      center center, 0.60,
+      from(alpha(@microphone-inactive, 0.5)),
+      color-stop(1.0, alpha(@microphone-inactive, 0.0)),
+      to(transparent));
+  background-repeat: no-repeat;
+  background-size: 100% 80%;
+  background-position: calc(50% + 2px) 50%;
+}
+
+#pulseaudio.input {
+  background-image: -gtk-gradient(radial,
+      center center, 0,
+      center center, 0.60,
+      from(alpha(@microphone-active, 0.9)),
+      color-stop(1.0, alpha(@microphone-active, 0.0)),
+      to(transparent));
+  background-repeat: no-repeat;
+  background-size: 100% 80%;
+  background-position: calc(50% + 2px) 50%;
+}
+
 #wireplumber.muted {
-  color: @text;
-  background-color: @hover-button;
+  color: @hover-popup;
 }
 
 .warning {

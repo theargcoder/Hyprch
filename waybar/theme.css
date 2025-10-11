@@ -45,8 +45,8 @@
 @define-color main-br @subtext1;
 @define-color main-bg @crust;
 @define-color main-fg @text;
-@define-color hover-popup @crust;
-@define-color hover-button @black;
+@define-color hover-popup alpha(@black, 0.7);
+@define-color hover-button @hover-popup;
 @define-color hover-nothing @text;
 @define-color outline alpha(@base, 0.38);
 
@@ -60,6 +60,11 @@
 @define-color modules-background @transparent;
 
 /* state colors */
+@define-color player-inactive alpha(red, 0.9);
+@define-color player-active alpha(@green, 1.0);
+
+@define-color microphone-inactive alpha(red, 0.9);
+@define-color microphone-active alpha(@green, 1.0);
 
 @define-color selection @text;
 @define-color selection-bg @red;

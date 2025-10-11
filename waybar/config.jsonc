@@ -10,11 +10,11 @@
   ],
   "modules-center": [
     "hyprland/windowcount",
+    "idle_inhibitor",
     "temperature",
     "memory",
     "cpu",
     "custom/distro",
-    "idle_inhibitor",
     "clock#time",
     "clock#date",
     "network",

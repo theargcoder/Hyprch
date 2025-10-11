@@ -70,7 +70,7 @@ password=$(echo "" | wofi --dmenu --password --prompt "Password for $choice" --w
 
 # 9️⃣ Connect with password
 if nmcli device wifi connect "$choice" password "$password"; then
-  notify-send "Wi-Fi" "Connected to $choice" -i "network-wireless-connected" -t 5000
+  notify-send "Wi-Fi" "Connected to $choice" -i "network-wireless-connected" -t 10000
 else
   notify-send "Wi-Fi" "Failed to connect to $choice" -i "network-wireless-off" -t 10000
 fi

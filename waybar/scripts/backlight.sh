@@ -42,7 +42,7 @@ set-brightness() {
 	brightnessctl -n set "${value}%${op}" &>/dev/null
 
 	level=$(brightnessctl -m | awk -F',' '{print $4}')
-	notify-send "Brightness: $level" -h int:value:"$level" -i 'contrast' -r 2825 -t 5000
+	notify-send "Brightness: $level" -h int:value:"$level" -i 'contrast' -r 2825 -t 1000
 }
 
 main() {
