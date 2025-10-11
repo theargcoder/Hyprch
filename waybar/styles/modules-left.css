@@ -1,0 +1,57 @@
+/* theme switcher */
+#custom-theme_switcher:hover {
+  color: @hover-nothing;
+  background-color: @transparent;
+}
+
+#custom-user {
+  padding-right: 12px;
+  font-weight: normal;
+}
+
+
+#custom-left_div.1,
+#custom-right_div.1 {
+  color: @workspaces;
+}
+
+/* workspaces */
+
+#workspaces {
+  padding: 0 24px;
+  background-color: @modules-background;
+}
+
+#workspaces button {
+  background-color: @transparent;
+  color: @text;
+  box-shadow: none;
+  text-shadow: none;
+  border-radius: 24px;
+  padding: 0 12px;
+}
+
+#workspaces button.focused,
+#workspaces button.active {
+  color: @selection;
+  /* background circle (glow) */
+  background-image: -gtk-gradient(radial,
+      center center, 0,
+      center center, 0.5,
+      from(alpha(@red, 1.0)),
+      color-stop(1.0, alpha(@red, 0.0)),
+      to(transparent));
+  background-repeat: no-repeat;
+  background-size: 80% 100%;
+  background-position: calc(50% + 2px) 50%;
+}
+
+/* window title */
+
+#window {
+  margin-left: 12px;
+}
+
+#window label {
+  font-weight: normal;
+}

@@ -1,0 +1,583 @@
+{
+  /*------------
+		layout
+	------------*/
+
+  "modules-left": [
+    "group/theme_switcher",
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "hyprland/windowcount",
+    "temperature",
+    "memory",
+    "cpu",
+    "custom/distro",
+    "idle_inhibitor",
+    "clock#time",
+    "clock#date",
+    "network",
+    "bluetooth",
+    "custom/system_update"
+  ],
+  "modules-right": [
+    "mpris",
+    "group/pulseaudio",
+    "backlight",
+    "battery",
+    "custom/power_menu"
+  ],
+
+  /*-------------
+		options
+	-------------*/
+
+  "layer": "top",
+  // "output":
+  // "position":
+  "height": 0,
+  "width": 0,
+  "margin": 0,
+  // "margin-top":
+  // "margin-left":
+  // "margin-bottom":
+  // "margin-right":
+  "spacing": 0,
+  // "name":
+  "mode": "dock",
+  // "start_hidden":
+  // "modifier-reset":
+  // "exclusive":
+  // "fixed-center":
+  // "passthrough":
+  // "ipc":
+  // "id":
+  "reload_style_on_change": true,
+
+  /*-------------------------------------------------------------------
+		HINT:
+		See the modules directory for more per-module config options.
+	-------------------------------------------------------------------*/
+  /*------------------
+		modules-left
+	------------------*/
+
+  "group/theme_switcher": {
+    "orientation": "horizontal",
+    "modules": ["custom/theme_switcher", "custom/user"],
+    "drawer": {}
+  },
+  "custom/theme_switcher": {
+    "exec": "~/.config/waybar/scripts/theme-switcher.sh",
+    "return-type": "json",
+    "format": "{}",
+    "min-length": 4,
+    "max-length": 4,
+    "on-click": "~/.config/waybar/scripts/theme-switcher.sh next",
+    "on-click-right": "~/.config/waybar/scripts/theme-switcher.sh prev"
+  },
+  "custom/user": {
+    "exec": "id --user --name",
+    "format": "{}",
+    "tooltip": false
+  },
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "1": "󰖟",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "6": "󰇘",
+      "urgent": "",
+      "default": ""
+    },
+    "sort-by-number": true,
+    "persistent-workspaces": {
+      "*": 6
+    },
+    "on-scroll-up": "hyprctl dispatch workspace +1",
+    "on-scroll-down": "hyprctl dispatch workspace -1",
+    "cursor": true
+  },
+  "hyprland/window": {
+    "format": "{}",
+    "rewrite": {
+      "": "Desktop",
+      "kitty": "Terminal",
+      "zsh": "Terminal",
+      "~": "Terminal"
+    },
+    "swap-icon-label": false
+  },
+
+  /*--------------------
+		modules-center
+	--------------------*/
+
+  "hyprland/windowcount": {
+    "format": "[{}]",
+    "swap-icon-label": false
+  },
+
+  "temperature": {
+    "thermal-zone": 1,
+    // "hwmon-path":
+    // "hwmon-path-abs":
+    // "input-filename":
+    "critical-threshold": 90,
+    "interval": 3,
+    "format-critical": "󰀦 {temperatureC}°C",
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": ["󱃃", "󰔏", "󱃂"],
+    // "rotate":
+    "min-length": 8,
+    "max-length": 8,
+    // "on-click":
+    // "on-click-middle":
+    // "on-click-right":
+    // "on-scroll-up":
+    // "on-scroll-down":
+    // "smooth-scrolling-threshold":
+    // "tooltip":
+    "tooltip-format": "Temp in Fahrenheit: {temperatureF}°F"
+  },
+
+  "memory": {
+    "interval": 3,
+    "format": "󰘚 {percentage}%",
+    "format-warning": "󰀧 {percentage}%",
+    "format-critical": "󰀧 {percentage}%",
+    // "rotate":
+    "states": {
+      "warning": 75,
+      "critical": 90
+    },
+    "min-length": 7,
+    "max-length": 7,
+    // "on-click":
+    // "on-click-middle":
+    // "on-click-right":
+    // "on-scroll-up":
+    // "on-scroll-down":
+    // "smooth-scrolling-threshold":
+    // "tooltip":
+    "tooltip-format": "Memory Used: {used:0.1f} GB / {total:0.1f} GB"
+  },
+
+  "cpu": {
+    "interval": 10,
+    "format": "󰍛 {usage}%",
+    "format-warning": "󰀨 {usage}%",
+    "format-critical": "󰀨 {usage}%",
+    "min-length": 7,
+    "max-length": 7,
+    // "rotate":
+    "states": {
+      "warning": 75,
+      "critical": 90
+    },
+    // "on-click":
+    // "on-click-middle":
+    // "on-click-right":
+    // "on-scroll-up":
+    // "on-scroll-down":
+    // "smooth-scrolling-threshold":
+    "tooltip": false
+  },
+
+  "custom/distro": {
+    "format": "󰣇",
+    "tooltip": false
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "󰈈",
+      "deactivated": "󰈉"
+    },
+    // "rotate":
+    "min-length": 3,
+    "max-length": 3,
+    // "on-click":
+    // "on-click-middle":
+    // "on-click-right":
+    // "on-scroll-up":
+    // "on-scroll-down":
+    // "smooth-scrolling-threshold":
+    // "tooltip":
+    "tooltip-format-activated": "Keep Screen On: <span text_transform='capitalize'>{status}</span>",
+    "tooltip-format-deactivated": "Keep Screen On: <span text_transform='capitalize'>{status}</span>",
+    "start-activated": false
+    // "timeout":
+  },
+
+  "clock#time": {
+    "interval": 1,
+    "format": "{:%H:%M}",
+    // "timezone":
+    // "timezones":
+    // "locale":
+    "min-length": 5,
+    "max-length": 5,
+    // "rotate": 0,
+    // "on-click":
+    // "on-click-middle":
+    // "on-click-right":
+    // "on-scroll-up":
+    // "on-scroll-down":
+    // "smooth-scrolling-threshold":
+    // "tooltip":
+    "tooltip-format": "Local Time: {:%H:%M:%S}"
+  },
+
+  /*--------------
+		calendar
+	--------------*/
+
+  "clock#date": {
+    "interval": 40000,
+    "format": "󰸗 {:%m-%d}",
+    // "timezone":
+    // "timezones":
+    // "locale":
+    "min-length": 8,
+    "max-length": 8,
+    // "rotate":
+    // "on-click":
+    // "on-click-middle":
+    // "on-click-right":
+    // "on-scroll-up":
+    // "on-scroll-down":
+    // "smooth-scrolling-threshold":
+    // "tooltip":
+    "tooltip-format": "{calendar}",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 6,
+      // "week-pos":
+      // "on-scroll":
+      "format": {
+        "months": "<span alpha='100%'><b>{}</b></span>",
+        "days": "<span alpha='90%'>{}</span>",
+        // "weeks":
+        "weekdays": "<span alpha='80%'><i>{}</i></span>",
+        "today": "<span alpha='100%'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click": "mode"
+      // "on-click-middle":
+      // "on-click-right":
+      // "on-scroll-up":
+      // "on-scroll-down":
+    }
+  },
+
+  "network": {
+    // "interface":
+    "interval": 10,
+    // "family":
+    "format": "󰤨",
+    "format-ethernet": "󰈀",
+    "format-wifi": "{icon}",
+    // "format-linked":
+    "format-disconnected": "󰤯",
+    "format-disabled": "󰤮",
+    // "format-alt":
+    "format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
+    // "rotate":
+    "min-length": 2,
+    "max-length": 2,
+    "on-click": "~/.config/waybar/scripts/network-popup.sh",
+    // "on-click-middle":
+    "on-click-right": "nmcli radio wifi off && notify-send 'Wi-Fi Disabled' -i 'network-wireless-off' -r 1125 -t 5000",
+    // "on-scroll-up":
+    // "on-scroll-down":
+    // "smooth-scrolling-threshold":
+    "tooltip": true,
+    "tooltip-format": "{output}",
+    "tooltip-format-ethernet": "Interface: {ifname}\nIP: {ipaddr}",
+    "tooltip-format-wifi": "Network: {essid}\nIP: {ipaddr}\nSignal: {signalStrength}%\nFreq: {frequency} GHz",
+    "tooltip-format-disconnected": "Wi-Fi Disconnected",
+    "tooltip-format-disabled": "Wi-Fi Disabled"
+  },
+
+  "bluetooth": {
+    // "controller":
+    // "format-device-preference":
+    "format": "󰂯",
+    "format-disabled": "󰂲",
+    "format-off": "󰂲",
+    "format-on": "󰂰",
+    "format-connected": "󰂱",
+    // "format-connected-battery":
+    // "format-no-controller":
+    // "rotate":
+    "min-length": 2,
+    "max-length": 2,
+    "on-click": "~/.config/waybar/scripts/bluetooth-popup.sh",
+    // "on-click-middle":
+    "on-click-right": "bluetoothctl power off && notify-send 'Bluetooth Off' -i 'network-bluetooth-inactive' -r 1925 -t 5000",
+    // "on-scroll-up":
+    // "on-scroll-down":
+    // "smooth-scrolling-threshold":
+    // "tooltip":
+    "tooltip-format": "Device Addr: {device_address}",
+    "tooltip-format-disabled": "Bluetooth Disabled",
+    "tooltip-format-off": "Bluetooth Off",
+    "tooltip-format-on": "Bluetooth Disconnected",
+    "tooltip-format-connected": "Device: {device_alias}",
+    "tooltip-format-enumerate-connected": "Device: {device_alias}",
+    "tooltip-format-connected-battery": "Device: {device_alias}\nBattery: {device_battery_percentage}%",
+    "tooltip-format-enumerate-connected-battery": "Device: {device_alias}\nBattery: {device_battery_percentage}%"
+  },
+
+  "custom/system_update": {
+    "exec": "~/.config/waybar/scripts/system-update-popup.sh",
+    "return-type": "json",
+    "interval": 3600,
+    "format": "{}",
+    "min-length": 2,
+    "max-length": 2,
+    "on-click": "kitty -e ~/.config/waybar/scripts/system-update-popup.sh start"
+  },
+
+  /*-------------------
+		modules-right
+	-------------------*/
+
+  "mpris": {
+    // "player":
+    // "ignored-players":
+    // "interval":
+    "format": "{player_icon} {title} - {artist}",
+    "format-paused": "{status_icon} {title} - {artist}",
+    "tooltip-format": "Playing: {title} - {artist}",
+    "tooltip-format-paused": "Paused: {title} - {artist}",
+    // "enable-tooltip-len-limits":
+    // "on-click":
+    // "on-click-middle":
+    // "on-click-right":
+    "player-icons": {
+      "default": "󰐊"
+    },
+    "status-icons": {
+      "paused": "󰏤"
+    },
+    // "dynamic-order":
+    // "dynamic-len":
+    // "dynamic-separator":
+    // "dynamic-importance-order":
+    // "min-length":
+    "max-length": 1000
+  },
+
+  "group/pulseaudio": {
+    "orientation": "horizontal",
+    "modules": ["pulseaudio#output", "pulseaudio#input"],
+    "drawer": {
+      // "transition-duration":
+      "transition-left-to-right": false
+      // "children-class":
+      // "click-to-reveal":
+    }
+  },
+
+  /*-------------------
+		output device
+	-------------------*/
+
+  "pulseaudio#output": {
+    "format": "{icon} {volume}%",
+    // "format-bluetooth":
+    "format-muted": "{icon} {volume}%",
+    // "format-source":
+    // "format-source-muted":
+    "format-icons": {
+      "default": ["󰕿", "󰖀", "󰕾"],
+      "default-muted": "󰝟",
+      "headphone": "󰋋",
+      "headphone-muted": "󰟎",
+      "headset": "󰋎",
+      "headset-muted": "󰋐"
+    },
+    // "rotate":
+    // "states":
+    "min-length": 7,
+    "max-length": 7,
+    // "scroll-step":
+    "on-click": "~/.config/waybar/scripts/volume.sh output mute",
+    // "on-click-middle":
+    // "on-click-right":
+    "on-scroll-up": "~/.config/waybar/scripts/volume.sh output raise",
+    "on-scroll-down": "~/.config/waybar/scripts/volume.sh output lower",
+    // "smooth-scrolling-threshold":
+    // "tooltip":
+    "tooltip-format": "Output Device: {desc}"
+    // "max-volume":
+    // "ignored-sinks":
+    // "reverse-scrolling":
+    // "reverse-mouse-scrolling":
+  },
+
+  /*----------------
+		microphone
+	----------------*/
+
+  "pulseaudio#input": {
+    "format": "{format_source}",
+    // "format-bluetooth":
+    // "format-muted":
+    "format-source": "󰍬 {volume}%",
+    "format-source-muted": "󰍭 {volume}%",
+    // "format-icons":
+    // "rotate":
+    // "states":
+    "min-length": 7,
+    "max-length": 7,
+    // "scroll-step":
+    "on-click": "~/.config/waybar/scripts/volume.sh input mute",
+    // "on-click-middle":
+    // "on-click-right":
+    "on-scroll-up": "~/.config/waybar/scripts/volume.sh input raise",
+    "on-scroll-down": "~/.config/waybar/scripts/volume.sh input lower",
+    // "smooth-scrolling-threshold":
+    // "tooltip":
+    "tooltip-format": "Input Device: {desc}"
+    // "max-volume":
+    // "ignored-sinks":
+    // "reverse-scrolling":
+    // "reverse-mouse-scrolling":
+  },
+
+  "backlight": {
+    // "interval":
+    "format": "{icon} {percent}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "min-length": 7,
+    "max-length": 7,
+    // "rotate":
+    // "states":
+    // "on-click":
+    // "on-click-middle":
+    // "on-click-right":
+    "on-scroll-up": "~/.config/waybar/scripts/backlight.sh up",
+    "on-scroll-down": "~/.config/waybar/scripts/backlight.sh down",
+    // "smooth-scrolling-threshold":
+    // "reverse-scrolling":
+    // "reverse-mouse-scrolling":
+    // "scroll-step":
+    "tooltip": false
+  },
+
+  "battery": {
+    // "bat":
+    // "adapter":
+    // "design-capacity":
+    // "full-at":
+    // "interval":
+    "states": {
+      "warning": 20,
+      "critical": 10
+    },
+    "format": "{icon} {capacity}%",
+    "format-time": "{H} hr {M} min",
+    "format-icons": ["󰂎", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "format-charging": "󰉁 {capacity}%",
+    "min-length": 7,
+    "max-length": 7,
+    // "rotate":
+    // "on-click":
+    // "on-click-middle":
+    // "on-click-right":
+    // "on-scroll-up":
+    // "on-scroll-down":
+    // "smooth-scrolling-threshold":
+    // "tooltip":
+    "tooltip-format": "Discharging: {time}",
+    "tooltip-format-charging": "Charging: {time}",
+    // "weighted-average":
+    // "bat-compatibility":
+    "events": {
+      "on-discharging-warning": "notify-send 'Low Battery' '{capacity}% battery remaining' -t 5000",
+      "on-discharging-critical": "notify-send 'Low Battery' '{capacity}% battery remaining' -u critical -t 5000",
+      "on-charging-100": "notify-send 'Battery full' 'Battery is at {capacity}%' -t 5000"
+    }
+  },
+
+  "custom/power_menu": {
+    "format": "󰤄",
+    //"on-click": "kitty -e ~/.config/waybar/scripts/power-menu.sh",
+    "on-click": "~/.config/waybar/scripts/power-menu-popup.sh",
+    "tooltip-format": "Power Menu"
+  },
+  "group/wireplumber": {
+    "orientation": "horizontal",
+    "modules": ["wireplumber#output", "wireplumber#input"],
+    "drawer": {
+      // "transition-duration":
+      "transition-left-to-right": false
+      // "children-class":
+      // "click-to-reveal":
+    }
+  },
+
+  /*-------------------
+		output device
+	-------------------*/
+
+  "wireplumber#output": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 {volume}%",
+    // "format-source":
+    // "format-source-muted":
+    "format-icons": ["󰕿", "󰖀", "󰕾"],
+    // "rotate":
+    // "states":
+    "min-length": 7,
+    "max-length": 7,
+    // "scroll-step":
+    "on-click": "~/.config/waybar/scripts/volume.sh output mute",
+    // "on-click-middle":
+    // "on-click-right":
+    "on-scroll-up": "~/.config/waybar/scripts/volume.sh output raise",
+    "on-scroll-down": "~/.config/waybar/scripts/volume.sh output lower",
+    // "tooltip":
+    "tooltip-format": "Device: {node_name}",
+    // "max-volume":
+    // "reverse-scrolling":
+    "node-type": "Audio/Sink"
+  },
+
+  /*----------------
+		microphone
+	----------------*/
+
+  "wireplumber#input": {
+    "format": "󰍬 {volume}%",
+    "format-muted": "󰍭 {volume}%",
+    // "format-source":
+    // "format-source-muted":
+    // "rotate":
+    // "states":
+    "min-length": 7,
+    "max-length": 7,
+    // "scroll-step":
+    "on-click": "~/.config/waybar/scripts/volume.sh input mute",
+    // "on-click-middle":
+    // "on-click-right":
+    "on-scroll-up": "~/.config/waybar/scripts/volume.sh input raise",
+    "on-scroll-down": "~/.config/waybar/scripts/volume.sh input lower",
+    // "tooltip":
+    "tooltip-format": "Device: {node_name}",
+    // "max-volume":
+    // "reverse-scrolling":
+    "node-type": "Audio/Source"
+  }
+}

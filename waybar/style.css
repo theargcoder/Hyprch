@@ -1,0 +1,78 @@
+@import "styles/modules-left.css";
+@import "styles/modules-center.css";
+@import "styles/modules-right.css";
+@import "theme.css";
+
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 14px;
+}
+
+/* main outline */
+
+window#waybar {
+  background-color: @transparent;
+}
+
+/* main background */
+
+window#waybar>box {
+  margin: 4px;
+  background-color: @outline;
+  border-radius: 24px;
+}
+
+/* states */
+
+.deactivated,
+.paused,
+#pulseaudio.output.muted,
+#pulseaudio:hover {
+  color: @text;
+  background-color: @hover-button;
+}
+
+#pulseaudio.input.source-muted,
+#wireplumber.muted {
+  color: @text;
+  background-color: @hover-button;
+}
+
+.warning {
+  color: @warning;
+}
+
+.critical {
+  color: @critical;
+}
+
+.charging {
+  color: @charging;
+}
+
+/* dividers */
+
+#custom-left_div,
+#custom-left_inv,
+#custom-right_div,
+#custom-right_inv {
+  font-size: 10px;
+}
+
+/* tooltips */
+
+tooltip {
+  border: 2px solid @tooltip-accent;
+  border-radius: 18px;
+  background-color: @tooltip-main-bg;
+}
+
+tooltip label {
+  margin: 4px 4px;
+  font-weight: normal;
+}
+
+tooltip decoration {
+  border: none;
+  background-color: transparent;
+}

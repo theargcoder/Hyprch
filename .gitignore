@@ -1,0 +1,11 @@
+.mozilla/
+dconf/
+go/
+kitty/
+nvim/
+pulse/
+spotify/
+systemd/
+gtk-3.0/
+gtk-4.0/
+yay/
