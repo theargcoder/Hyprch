@@ -96,5 +96,5 @@ tooltip label {
 
 tooltip decoration {
   border: none;
-  background-color: transparent;
+  background-color: @transparent;
 }

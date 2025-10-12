@@ -6,7 +6,7 @@
   color: @text;
   border-radius: 24px;
   /* default text color */
-  background-color: transparent;
+  background-color: @transparent;
 }
 
 #mpris:hover {
@@ -76,6 +76,5 @@
 }
 
 #custom-power_menu:hover {
-  color: @text;
-  background-color: @hover-button;
+  background-color: @hover-popup;
 }

@@ -45,10 +45,10 @@
 @define-color main-br @subtext1;
 @define-color main-bg @crust;
 @define-color main-fg @text;
-@define-color hover-popup alpha(@black, 0.7);
-@define-color hover-button @hover-popup;
+@define-color hover-popup alpha(@peach, 1.0);
+@define-color hover-button @transparent;
 @define-color hover-nothing @text;
-@define-color outline alpha(@base, 0.38);
+@define-color outline alpha(@base, 0.58);
 
 /* tooltips colors */
 
