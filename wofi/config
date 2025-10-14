@@ -10,4 +10,7 @@ halign=fill
 valign=center
 width=25%
 
+layer=top
+normal_window=true
+
 hide_scroll=true

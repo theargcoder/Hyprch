@@ -40,6 +40,7 @@
 
 /* main colors */
 
+@define-color text-dim alpha(@white, 0.85);
 @define-color text @white;
 @define-color accent @sky;
 @define-color main-br @subtext1;
@@ -48,7 +49,7 @@
 @define-color hover-popup alpha(@peach, 1.0);
 @define-color hover-button @transparent;
 @define-color hover-nothing @text;
-@define-color outline alpha(@base, 0.58);
+@define-color outline alpha(@black, 0.70);
 
 /* tooltips colors */
 
@@ -63,8 +64,8 @@
 @define-color player-inactive alpha(red, 0.9);
 @define-color player-active alpha(@green, 1.0);
 
-@define-color microphone-inactive alpha(red, 0.9);
-@define-color microphone-active alpha(@green, 1.0);
+@define-color microphone-inactive alpha(red, 1.0);
+@define-color microphone-active alpha(green, 1.0);
 
 @define-color selection @text;
 @define-color selection-bg @red;

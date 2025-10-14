@@ -1,7 +1,7 @@
 @import "styles/modules-left.css";
 @import "styles/modules-center.css";
 @import "styles/modules-right.css";
-@import "theme.css";
+@import "../theme.css";
 
 * {
   font-family: "JetBrainsMono Nerd Font";
@@ -17,7 +17,7 @@ window#waybar {
 /* main background */
 
 window#waybar>box {
-  margin: 4px;
+  margin: 5px 5px 0px 5px;
   background-color: @outline;
   border-radius: 24px;
 }
@@ -90,7 +90,8 @@ tooltip {
 }
 
 tooltip label {
-  margin: 4px 4px;
+  color: @text-dim;
+  margin: 2px 2px;
   font-weight: normal;
 }
 
