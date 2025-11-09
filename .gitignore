@@ -2,7 +2,6 @@
 dconf/
 go/
 kitty/
-nvim/
 pulse/
 spotify/
 systemd/
