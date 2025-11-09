@@ -12,6 +12,7 @@ local options = {
     ksh = { "beautysh" },
     sh = { "beautysh" },
     zsh = { "beautysh" },
+    cmake = { "cmake-format" },
     cpp = { "clang-format" },
     c = { "clang-format" },
   },

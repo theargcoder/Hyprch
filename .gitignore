@@ -1,6 +1,7 @@
 .mozilla/
 dconf/
 go/
+kitty/
 pulse/
 spotify/
 systemd/

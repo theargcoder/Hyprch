@@ -1,6 +1,12 @@
+-- Load NvChad defaults
 require("nvchad.configs.lspconfig").defaults()
 
-local servers = { "html", "cssls", "clangd" }
-vim.lsp.enable(servers)
+-- Define servers
+local servers = { "clangd", "cmake" }
 
--- read :h vim.lsp.config for changing options of lsp servers
+-- Enable servers with custom opts
+vim.lsp.enable(servers, {
+  clangd = {
+    cmd = { "clangd", "--offset-encoding=utf-16" },
+  },
+})

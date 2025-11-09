@@ -6,7 +6,7 @@
 local M = {}
 
 M.base46 = {
-  theme = "ayu_dark",
+  theme = "gatekeeper",
 
   hl_override = {
     -- 	Comment = { italic = true },
@@ -15,6 +15,8 @@ M.base46 = {
     VisualNOS = { bg = "#0c313d" },
   },
 }
+
+-- M.mappings = require "custom.dap-mappings"
 
 -- M.nvdash = { load_on_startup = true }
 -- M.ui = {
