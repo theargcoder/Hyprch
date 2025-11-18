@@ -21,6 +21,7 @@ dap.configurations.cpp = {
     end,
     cwd = "${workspaceFolder}",
     stopOnEntry = false,
+    showDisassembly = "never", -- 👈 stays in C++ view unless you explicitly ask
   },
 }
 
@@ -132,6 +133,14 @@ map("n", "<leader>dB", function()
 end, { desc = "Debug: Conditional breakpoint", noremap = true, silent = true })
 map("n", "<leader>dp", dap.pause, { desc = "Debug: Pause", noremap = true, silent = true })
 map("n", "<leader>dq", dap.terminate, { desc = "Debug: Terminate session", noremap = true, silent = true })
+
+-- =======================
+-- Manual disassembly keybinding
+-- =======================
+map("n", "<leader>da", function()
+  require("dap").repl.open()
+  vim.fn.chansend(vim.b.terminal_job_id, "disassemble -f\n")
+end, { desc = "Debug: Disassemble current function", noremap = true, silent = true })
 
 -- =======================
 -- DAP UI keybindings
