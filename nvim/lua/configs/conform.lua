@@ -1,8 +1,6 @@
 local options = {
   formatters_by_ft = {
     lua = { "stylua" },
-    css = { "prettier" },
-    html = { "prettier" },
     json = { "biome" },
     javascript = { "biome" },
     typescript = { "biome" },
@@ -12,14 +10,14 @@ local options = {
     ksh = { "beautysh" },
     sh = { "beautysh" },
     zsh = { "beautysh" },
-    cmake = { "cmake-format" },
+    --cmake = { "cmake_format" },
     cpp = { "clang-format" },
     c = { "clang-format" },
   },
 
   format_on_save = {
     -- These options will be passed to conform.format()
-    timeout_ms = 500,
+    timeout_ms = 5000,
     lsp_fallback = true,
   },
 }

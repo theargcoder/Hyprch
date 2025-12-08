@@ -3,6 +3,9 @@ local dapui = require "dapui"
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
+vim.g.dap_virtual_text = true
+require("dap").set_log_level "DEBUG"
+
 -- =======================
 -- Adapter & configurations
 -- =======================
@@ -21,11 +24,22 @@ dap.configurations.cpp = {
     end,
     cwd = "${workspaceFolder}",
     stopOnEntry = false,
+    launchOptions = {
+      showDisassembly = "never",
+    },
   },
 }
 
 dap.configurations.c = dap.configurations.cpp
 
+-- =======================
+-- The Fix: Disable Exception Breakpoints
+-- =======================
+dap.listeners.after.event_initialized["dap_exception_config"] = function()
+  dap.set_exception_breakpoints {}
+end
+
+-- ... (rest of your UI and Keymap code goes here) ...
 -- =======================
 -- Custom highlight & signs
 -- =======================
@@ -132,6 +146,14 @@ map("n", "<leader>dB", function()
 end, { desc = "Debug: Conditional breakpoint", noremap = true, silent = true })
 map("n", "<leader>dp", dap.pause, { desc = "Debug: Pause", noremap = true, silent = true })
 map("n", "<leader>dq", dap.terminate, { desc = "Debug: Terminate session", noremap = true, silent = true })
+
+-- =======================
+-- Manual disassembly keybinding
+-- =======================
+map("n", "<leader>da", function()
+  require("dap").repl.open()
+  vim.fn.chansend(vim.b.terminal_job_id, "disassemble -f\n")
+end, { desc = "Debug: Disassemble current function", noremap = true, silent = true })
 
 -- =======================
 -- DAP UI keybindings

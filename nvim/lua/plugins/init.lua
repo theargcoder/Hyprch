@@ -57,6 +57,13 @@ return {
     end,
   },
 
+  {
+    "mfussenegger/nvim-lint",
+    event = { "BufWritePre", "BufNewFile" },
+    config = function()
+      require "configs.lint" -- this line explicitly loads ~/.config/nvim/lua/configs/lint.lua
+    end,
+  },
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 
