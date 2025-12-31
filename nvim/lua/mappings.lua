@@ -8,8 +8,8 @@ local function toggle_linenr_color()
     vim.api.nvim_set_hl(0, "@comment", { fg = "#4a4a4a", bg = nil, italic = true })
     print "LineNr: Grey"
   else
-    vim.api.nvim_set_hl(0, "LineNr", { fg = "#cd5c36", bg = nil, italic = true, bold = true })
-    vim.api.nvim_set_hl(0, "@comment", { fg = "#cd5c36", bg = nil, italic = true })
+    vim.api.nvim_set_hl(0, "LineNr", { fg = "#527542", bg = nil, italic = true, bold = true })
+    vim.api.nvim_set_hl(0, "@comment", { fg = "#527542", bg = nil, italic = true })
     print "LineNr: VsCode"
   end
   is_cyan = not is_cyan
